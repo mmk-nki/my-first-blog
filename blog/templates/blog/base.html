@@ -12,13 +12,19 @@
 
         <div class="page-header">
 
-            <!-管理者でログインしているユーザーのみにリンクを表示->
+            <!-管理者でログインしているユーザーであれば->
             {% if user.is_authenticated %}
-            <!-新規投稿ボタン表示->
+
+            <!-新規投稿・編集ボタン、表示->
             <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
             <a href="{% url 'post_draft_list' %}" class="top-menu"><span class="glyphicon glyphicon-edit"></span></a>
-            {% endif %}
+            <p class="top-menu">こんにちは {{ user.username }}さん <small>(<a href="{% url 'logout' %}">Log out</a>)</small></p>
 
+            <!-管理者でログインしていないユーザーであればログイン画面表示->
+            {% else %}
+            <a href="{% url 'login' %}" class="top-menu"><span class="glyphicon glyphicon-lock"></span></a>
+
+            {% endif %}
             <!-タイトルを押すとトップに戻る->
             <h1><a href="/">Trip Blog</a></h1>
 
