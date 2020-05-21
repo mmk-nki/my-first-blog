@@ -3,16 +3,19 @@
 {% block content %}
     <div class="post">
         {% if post.published_date %}
-            <div class="date">
-                {{ post.published_date }}
-            </div>
+          <div class="date">
+            {{ post.published_date }}
+          </div>
+        {% else %}
+          <a class="btn btn-default" href="{% url 'post_publish' pk=post.pk %}">Publish</a>
         {% endif %}
 
         <!-管理者でログインしているユーザーのみにリンクを表示->
         {% if user.is_authenticated %}
-        
-        <!-編集ボタン表示->
+
+        <!-編集ボタンと削除ボタンを表示->
         <a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+        <a class="btn btn-default" href="{% url 'post_remove' pk=post.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
         {% endif %}
         
         <h2>{{ post.title }}</h2>

@@ -16,6 +16,7 @@
             {% if user.is_authenticated %}
             <!-新規投稿ボタン表示->
             <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+            <a href="{% url 'post_draft_list' %}" class="top-menu"><span class="glyphicon glyphicon-edit"></span></a>
             {% endif %}
 
             <!-タイトルを押すとトップに戻る->
