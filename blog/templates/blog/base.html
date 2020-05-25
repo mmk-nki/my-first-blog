@@ -15,7 +15,7 @@
             <!-管理者でログインしているユーザーであれば->
             {% if user.is_authenticated %}
 
-            <!-新規投稿・編集ボタン、表示->
+            <!-新規投稿・編集ボタン・文字表示->
               <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
               <a href="{% url 'post_draft_list' %}" class="top-menu"><span class="glyphicon glyphicon-edit"></span></a>
               <p class="top-menu">こんにちは {{ user.username }}さん <small>(<a href="{% url 'logout' %}">Log out</a>)</small></p>
@@ -26,7 +26,7 @@
 
             {% endif %}
             <!-タイトルを押すとトップに戻る->
-              <h1><a href="/">Trip Blog</a></h1>
+            <h1><a href="/">Trip Blog</a></h1>
 
         </div>
 
